@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+</head>
+
+<body>
+    <h1>The Psychic Game</h1>
+    <p>Guess what letter I'm thinking of...</p>
+
+    <p id="wins"></p>
+    <p id="losses"></p>
+    <p id="guessesRemaining"></p>
+    <p id="guessedLetters"></p>
+
+    <script>
+
+        //Variables######################################################
+
+        var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+
+        var wins = 0;
+        var losses = 0;
+        var guessesRemaining = 10;
+
+        
+
+        //Functions######################################################
+
+        
+        var aiChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+
+        console.log(aiChoice)
+
+
+
+
+        //Script#########################################################
+
+        document.onkeypress = function (event) {
+            var playerGuess = event.key.toLowerCase();
+            var letterGuessed = [playerGuess];
+
+            if (playerGuess === aiChoice) {
+                wins++;
+                alert("WINNER!!! The correct answer was " + aiChoice.toUpperCase());
+            } else {
+                guessesRemaining--;
+                alert("INCORRECT");
+                document.querySelector("#guessedLetters").innerHTML = "Guessed Letters: " + letterGuessed;
+                // aiChoice = 0;
+            }
+
+            if (guessesRemaining === 0) {
+                losses++
+                alert("Game Over, Try Again")
+                guessesRemaining = 10;
+            }
+
+            document.querySelector("#wins").innerHTML = "Wins: " + wins;
+            document.querySelector("#losses").innerHTML = "Losses: " + losses;
+            document.querySelector("#guessesRemaining").innerHTML = "Guesses Remaining: " + (guessesRemaining - 1);
+            document.querySelector("#guessedLetters").innerHTML = "Guessed Letters: " + guessedLetters;
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
