@@ -3,74 +3,58 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My First Object</title>
+    <title>Letter Guessing Game of Champions</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <script src= "assets/javascript/game.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <h1>The Psychic Game</h1>
-    <p>Guess what letter I'm thinking of...</p>
-
-    <p id="wins"></p>
-    <p id="losses"></p>
-    <p id="guessesRemaining"></p>
-    <p id="guessedLetters"></p>
-
-    <script>
-
-        //Variables######################################################
-
-        var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-
-        var wins = 0;
-        var losses = 0;
-        var guessesRemaining = 10;
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="gameTitle">
+                <p>The Psychic Game</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="directions">
+                <p>Guess what letter I'm thinking of...</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="announcement">
+                <p>Enter a letter</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 id="wins">Wins: 0</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 id="losses">Losses: 0</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 id="guesses">Player Guesses Remaining: 10</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 id="letters">Letters Guessed: </h5>
+            </div>
+        </div>
         
 
-        //Functions######################################################
 
-        
-        var aiChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+    </div>
 
-        console.log(aiChoice)
-
-
-
-
-        //Script#########################################################
-
-        document.onkeypress = function (event) {
-            var playerGuess = event.key.toLowerCase();
-            var letterGuessed = [playerGuess];
-
-            if (playerGuess === aiChoice) {
-                wins++;
-                alert("WINNER!!! The correct answer was " + aiChoice.toUpperCase());
-            } else {
-                guessesRemaining--;
-                alert("INCORRECT");
-                document.querySelector("#guessedLetters").innerHTML = "Guessed Letters: " + letterGuessed;
-                // aiChoice = 0;
-            }
-
-            if (guessesRemaining === 0) {
-                losses++
-                alert("Game Over, Try Again")
-                guessesRemaining = 10;
-            }
-
-            document.querySelector("#wins").innerHTML = "Wins: " + wins;
-            document.querySelector("#losses").innerHTML = "Losses: " + losses;
-            document.querySelector("#guessesRemaining").innerHTML = "Guesses Remaining: " + (guessesRemaining - 1);
-            document.querySelector("#guessedLetters").innerHTML = "Guessed Letters: " + guessedLetters;
-        }
-
-
-
-    </script>
-
+    <p></p>
 
 </body>
 

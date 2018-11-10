@@ -1,0 +1,29 @@
+
+#gameTitle{
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 100px;
+    margin: 40px 0 40px 0;
+    background-color: crimson;
+    color: white;
+    padding: 20px 0 10px 0;
+}
+
+#directions {
+    text-align: center;
+    margin: 30px;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+
+#scoreboard {
+    align-content: center;
+}
+
+#announcement {
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: bold;
+    font-size: 25px;
+}
